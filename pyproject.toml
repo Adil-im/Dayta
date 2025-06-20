@@ -1,0 +1,23 @@
+[project]
+name = "data"
+version = "0.1.0"
+description = "CLI automation tool for CRUD operations"
+authors = [
+    {name = "Adil-Im",email = "adhilimam2004@gmail.com"}
+]
+readme = "README.md"
+packages = [{ include = "data"}]
+requires-python = ">=3.11"
+dependencies = [
+    "click (>=8.2.1,<9.0.0)",
+    "pandas (>=2.3.0,<3.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)"
+]
+
+
+[tool.poetry.scripts]
+data = "data.main:cli"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
