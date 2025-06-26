@@ -2,16 +2,17 @@ import click
 import os
 from datetime import datetime, date
 from .database import Database
+import traceback
 
 # Initialize Database
 db = Database()
 
 def validate_date(ctx ,param, value):
-    ''' validate date format: YYYY-MM-DD'''
+    ''' validate date format: DD-MM-YYYY'''     
     if value is None:
         return None
     try: 
-        return datetime.strptime(value, '%Y-%m-%d').date()
+        return datetime.strptime(value.strip(), "%Y-%m-%d").date()
     except ValueError:
         raise click.BadParameter("Date must be in YYYY-MM-DD format")
 
@@ -37,7 +38,7 @@ def cli() -> None:
     pass
         
 @cli.command()
-@click.option('--visit-date','-d', callback=validate_date, help='Visit date(YYYY-MM-DD)', prompt="Visit date(YYYY-MM-DD)")
+@click.option('--visit-date','-d', callback=validate_date, help='Visit date(YYYY-MM-DD)', prompt="Visit date(YYYY-MM-DD)" )
 @click.option('--company-name', '-c', help='Company name', prompt='Company name')
 @click.option('--customer-address', '-a', help='Customer address')
 @click.option('--location', '-l', help="Location")

@@ -1,12 +1,12 @@
 [project]
-name = "data"
+name = "kaiz"
 version = "0.1.0"
 description = "CLI automation tool for CRUD operations"
 authors = [
     {name = "Adil-Im",email = "adhilimam2004@gmail.com"}
 ]
 readme = "README.md"
-packages = [{ include = "data"}]
+packages = [{ include = "src"}]
 requires-python = ">=3.11"
 dependencies = [
     "click (>=8.2.1,<9.0.0)",
@@ -16,7 +16,7 @@ dependencies = [
 
 
 [tool.poetry.scripts]
-data = "data.main:cli"
+kaiz = "kaiz.main:cli"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
